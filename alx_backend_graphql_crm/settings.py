@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i6vy8oa_s8zgw1#_l#rd91r#&_7i&w==e1lfbl&3#r$3-k52uf'
+SECRET_KEY = 'django-insecure-&6rfn-vmq7&$xvd&nw9f2$2lh+wc2%w1$or#!o-=j-svn(o1dj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,10 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'django_filters',
-    'graphene_django',
-    'crm',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'alx-backend-graphql_crm.urls'
+ROOT_URLCONF = 'alx_backend_graphql_crm.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'alx-backend-graphql_crm.wsgi.application'
+WSGI_APPLICATION = 'alx_backend_graphql_crm.wsgi.application'
 
 
 # Database
@@ -125,7 +121,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-GRAPHENE = {
-    "SCHEMA": "alx-backend-graphql_crm.schema.schema"
-}
