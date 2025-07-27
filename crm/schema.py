@@ -1,10 +1,11 @@
 import graphene
 from graphene_django import DjangoObjectType
 from .models import Customer, Product, Order
-from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.utils.timezone import now
 from decimal import Decimal
+import re
 
 # ------------------- GraphQL Types -------------------
 
@@ -40,16 +41,16 @@ class CreateCustomer(graphene.Mutation):
 
         # Validate phone format
         if input.phone:
-            import re
             pattern = re.compile(r'^(\+\d{10,15}|\d{3}-\d{3}-\d{4})$')
             if not pattern.match(input.phone):
                 raise Exception("Invalid phone number format")
 
-        customer = Customer.objects.create(
+        customer = Customer(
             name=input.name,
             email=input.email,
             phone=input.phone
         )
+        customer.save()
 
         return CreateCustomer(customer=customer, message="Customer created successfully")
 
